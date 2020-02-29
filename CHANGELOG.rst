@@ -2,17 +2,42 @@
 Ics.py changelog
 ============
 
+**************
+0.8 (in dev) - Grace Hopper
+**************
+
+This is a major release in the life of ics.py as it fixes a lot of long standing
+(design) issues with timespans, removes Arrow and introduces `attrs`.
+Thank you @N-Coder for the huge work you put in this!
+
+In progress:
+ - Remove Arrow
+ - Fix all-day issues
+ - Add attrs
+ - Fix timezone issues
+ - Fix SEQUENCE bug
+ - Introduce Timespan
 
 **************
-0.7 (in dev)
+0.7 - Katherine Johnson
 **************
 
-Major changes:
- - `make_all_day()` changes:
-  - If an event has a duration instead of an end time, make_all_day now rounds
-    the duration up to the next 24-hour interval. If it's already an even day,
-    the duration is unchanged.  
+Special thanks to @N-Coder for making 0.7 happen!
 
+Breaking changes:
+ - Remove useless `day` argument from `Timeline.today()`
+ - Attendee and Organizer attributes are now classes and can not be set to `str`.
+
+Minor changes:
+ - Add support for Python 3.8
+ - Ensure `VERSION` is the first line of a `VCALENDAR` and `PRODID` is second.
+
+Bug fixes:
+ - Fix regression in the support of emojis (and other unicode chars) while
+   parsing. (Thanks @Azhrei)
+ - Fix a bug preventing an EmailAlarm to be instantiated
+ - Fix multiple bugs in Organizer and Attendees properties.
+   (See #207, #209, #217, #218)
 
 **************
 0.6
